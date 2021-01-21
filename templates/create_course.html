@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-lg-2">
+        <a href="{% url 'create-course' %}" class="list-group-item list-group-item-action">Create Course</a>
+        <a href="{% url 'all-course' %}" class="list-group-item list-group-item-action">Course List</a>     
+    </div>
+    
+    <div class="col-lg-5 mx-auto">
+        <div class="row mx-auto mt-2"></div>
+         <div class="card">
+            <div class="card-header"><strong>Create course</strong></div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                            {{ forms.as_p }}
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+{% endblock %}

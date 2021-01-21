@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="col-lg-2">
+    <a href="{% url 'create-course' %}" class="list-group-item list-group-item-action">Create Course</a>
+    <a href="{% url 'all-course' %}" class="list-group-item list-group-item-action">Course List</a>     
+</div>
+<div class="card">
+    <div class="card-header">Course List</div>
+    <div class="card-body">
+        <table class="table table-responsive-sm">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Duration</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for course in courses %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ course.title }}</td>
+                    <td>{{ course.duration }}</td>
+                    <td>
+                        <a class="btn btn-primary" href="">Edit</a>
+                        <a class="btn btn-danger" href="">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}
